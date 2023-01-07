@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 public class GotoSignup : MonoBehaviour
 {
 
-    void goToSignup()
+    public void GoToSignup()
     {
-        Debug.Log("click!");
         SceneManager.LoadScene("SignupScene");
     }
 }
