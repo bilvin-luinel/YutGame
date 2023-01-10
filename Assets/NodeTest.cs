@@ -9,7 +9,7 @@ public class NodeTest : MonoBehaviour
     private WebSocket ws;
     void Start()
     {
-        ws = new WebSocket("ws://127.0.0.1:3000");
+        ws = new WebSocket("ws://127.0.0.1:8484");
         ws.OnMessage += ws_OnMessage;
         ws.OnOpen += ws_OnOpen;
         ws.OnClose += ws_OnClose;
@@ -30,4 +30,9 @@ public class NodeTest : MonoBehaviour
         Debug.Log("close");
     }
 
+
+    public void onClickTestBT()
+    {
+        ws.Send("click test BT");
+    }
 }

@@ -1,7 +1,9 @@
 const wsServer = require("ws").Server;
-const wss = new wsServer({ port: 3000 }, () => {
-    console.log("server is running port 3000")
+
+const loginServer = new wsServer({ port: 8484 }, () => {
+    console.log("login server is running port 8484");
 });
+
 
 let data = {
     type: "message",
@@ -9,15 +11,15 @@ let data = {
     pw: "adminpw"
 }
 
-wss.on('connection', (ws, request) => {
-    console.log("client connected");
+loginServer.on('connection', (ws, request) => {
+    const ip = request.headers['x-forwarded-for'] || request.connection.remoteAddress;
+    console.log(`새로운 클라이언트 [${ip}] 접속`);
+
     ws.on('message', (msg) => {
         console.log("client: %s", msg);
     })
+
     ws.send(JSON.stringify(data));
-    // client.send("hello!");
 
-    const ip = request.headers['x-forwarded-for'] || request.connection.remoteAddress;
 
-    console.log(`새로운 클라이언트 [${ip}] 접속`);
 });

@@ -1219,6 +1219,7 @@ GameObject:
   - component: {fileID: 1375182179}
   - component: {fileID: 1375182178}
   - component: {fileID: 1375182182}
+  - component: {fileID: 1375182183}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1364,6 +1365,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1375182183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375182177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a24507b3df0a04de8be994da8e18bfee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1452390782
 GameObject:
   m_ObjectHideFlags: 0
@@ -1926,7 +1939,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1875552676}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1375182183}
+        m_TargetAssemblyTypeName: LoginHandler, Assembly-CSharp
+        m_MethodName: clickLoginBT
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1875552676
 MonoBehaviour:
   m_ObjectHideFlags: 0
