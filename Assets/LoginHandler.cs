@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 using WebSocketSharp;
 using TMPro;
@@ -18,12 +19,14 @@ public class LoginHandler : MonoBehaviour
         ws.OnOpen += ws_OnOpen;
         ws.OnClose += ws_OnClose;
         ws.Connect();
-        ws.Send("1 client has accessed the login server");
     }
 
     void ws_OnMessage(object sender, MessageEventArgs e)
     {
-        Debug.Log(e.Data);
+        if (e.Data == "OK")
+        {
+            SceneManager.LoadScene("MainScene");
+        };
     }
     void ws_OnOpen(object sender, System.EventArgs e)
     {
@@ -32,6 +35,7 @@ public class LoginHandler : MonoBehaviour
     void ws_OnClose(object sender, CloseEventArgs e)
     {
         Debug.Log("Lost connection with login server");
+        // Start();
     }
     public void clickLoginBT()
     {
@@ -39,10 +43,9 @@ public class LoginHandler : MonoBehaviour
         userInfo.userID = inputID.text;
         userInfo.userPW = inputPW.text;
 
-        string userInfo_json = JsonUtility.ToJson(userInfo);
+        ws.Send(JsonUtility.ToJson(userInfo));
+        Debug.Log(JsonUtility.ToJson(userInfo));
 
-        ws.Send(userInfo_json);
-        Debug.Log(userInfo_json);
     }
 
 }

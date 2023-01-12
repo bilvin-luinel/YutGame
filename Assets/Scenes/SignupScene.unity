@@ -1877,8 +1877,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35460dd9dd9724555adc7ffe5c45d3dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputID_signup: {fileID: 1068565917}
-  inputPW_signup: {fileID: 1954926351}
+  inputID: {fileID: 1068565917}
+  inputPW: {fileID: 1954926351}
+  inputName: {fileID: 1907869808}
+  inputNickName: {fileID: 1100568766}
 --- !u!1 &1452390782
 GameObject:
   m_ObjectHideFlags: 0
