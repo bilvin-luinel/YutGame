@@ -25,7 +25,8 @@ public class LoginHandler : MonoBehaviour
     {
         if (e.Data == "OK")
         {
-            SceneManager.LoadScene("MainScene");
+            Debug.Log("login info OK");
+            goMainScene();
         };
     }
     void ws_OnOpen(object sender, System.EventArgs e)
@@ -47,10 +48,21 @@ public class LoginHandler : MonoBehaviour
         Debug.Log(JsonUtility.ToJson(userInfo));
 
     }
-
+    public void goToSignup()
+    {
+        ws.Close();
+        SceneManager.LoadScene("SignupScene");
+    }
+    public void goMainScene()
+    {
+        ws.Close();
+        Debug.Log("Hmm...");
+        SceneManager.LoadScene("MainScene");
+    }
 }
 
-public class UserInfo {
+public class UserInfo
+{
     public string userID;
     public string userPW;
 }

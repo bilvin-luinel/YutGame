@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 using WebSocketSharp;
 using TMPro;
@@ -33,7 +34,7 @@ public class RegistHandler : MonoBehaviour
     void ws_OnClose(object sender, CloseEventArgs e)
     {
         Debug.Log("Lost connection with regist server");
-        Start();
+        // Start();
     }
     public void clickSignupBT()
     {
@@ -45,6 +46,11 @@ public class RegistHandler : MonoBehaviour
 
         ws.Send(JsonUtility.ToJson(signupUserInfo));
         Debug.Log(JsonUtility.ToJson(signupUserInfo));
+    }
+        public void returnToLogin()
+    {
+        ws.Close();
+        SceneManager.LoadScene("LoginScene");
     }
 
 }
