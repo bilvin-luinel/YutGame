@@ -47,7 +47,7 @@ public class RegistHandler : MonoBehaviour
         ws.Send(JsonUtility.ToJson(signupUserInfo));
         Debug.Log(JsonUtility.ToJson(signupUserInfo));
     }
-        public void returnToLogin()
+    public void returnToLogin()
     {
         ws.Close();
         SceneManager.LoadScene("LoginScene");
